@@ -45,6 +45,15 @@ class NeuralNetwork:
         return loss
 
     def training_loop(self, X, Y, epochs, lr):
+        """
+        A full training loop of the neural network.
+
+        X: contains many training inputs x_i which have corresponding true values in Y, y_i.
+        Y: contains the true values y_i corresponding to inputs x_i in X.
+        epochs: number of epochs to train the neural network
+        lr: learning rate
+        """
+
         losses= []
         for epoch in range(epochs):
             total_loss = 0

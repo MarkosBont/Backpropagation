@@ -22,12 +22,17 @@ y4 = [0.1]
 
 X = np.array([x1,x2,x3,x4]) # Input to the network, in this format as we later use the zip function
 Y = np.array([y1,y2,y3,y4])
-"""
-Forward and Backward Passes
-"""
 
+
+"""
+Training Loop
+"""
 losses, outputs = nn.training_loop(X, Y, epochs=100, lr = 0.1)
+
+print('\n')
+print("Outputs:")
 for output in outputs:
     print(output)
+
 
 
