@@ -10,21 +10,21 @@ There are two main ways to test the functionality of the neural network:
   python -m unittest test.py
   ```
 
-- These tests check each major function in the project:
+- These tests check the functionality of each class in the project:
   - **Neuron class:** verifies weight and bias initialization, and both forward and backward passes.  
   - **Layer class:** tests forward and backward propagation across multiple neurons.  
   - **NeuralNetwork class:** tests the forward pass, backward pass and full training loop.  
 
-- A successful test run will output:
+- If the tests run successfully, this will output:
 
   ```
   ...
-  ----------------------------------------------------------------------
+  -------------------
   Ran X tests in Y.s
   OK
   ```
 
-  indicating that all tests passed successfully.
+  indicating that all the tests have passed successfully.
 
 ---
 
