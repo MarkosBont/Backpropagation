@@ -3,7 +3,7 @@
 There are two main ways to test the functionality of the neural network:
 
 ---
-### **1. Running Unit Tests (`test.py`)**
+### **1. Running Unit Tests (test.py)**
 
 - Execute all of the unit tests tests by running the following command in the terminal:
   ```bash
@@ -28,7 +28,7 @@ There are two main ways to test the functionality of the neural network:
 
 ---
 
-### **2. Running the Main Script (`main.py`)**
+### **2. Running the Main Script (main.py)**
 
 - You can run the network manually using the following command in the terminal:
 

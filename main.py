@@ -4,7 +4,7 @@ import numpy as np
 """
 Network Initialisation
 """
-nn = NeuralNetwork([4,6,10,6,4,1]) # Initialises a neural network with 3 layers
+nn = NeuralNetwork([4,6,10,6,4,1]) # Initialises a neural network with 5 layers
 nn.network_summary()  # Prints a summary of the neural network
 
 """
