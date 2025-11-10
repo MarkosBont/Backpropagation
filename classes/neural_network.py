@@ -4,7 +4,7 @@ import numpy as np
 class NeuralNetwork:
     def __init__(self, layers):
         """
-        Here layers is a list with the number of neurons in each layer. e.g. [3,4,1] has 3 layers
+        Here layers is a list with the number of neurons in each layer. e.g. [2,4,1] has 3 layers, an input layer, a hidden layer, and an output layer
         """
         self.layers = []
         n = len(layers) - 1
@@ -32,11 +32,11 @@ class NeuralNetwork:
         # Forward pass
         output = self.forward_pass(x)
 
-        # Computing the loss using MSE loss function
-        loss = np.mean(0.5 * (y - output) ** 2)
+        # Computing the loss using the MSE loss function
+        loss = np.mean((y - output) ** 2)
 
         # Computing the gradient of the loss w.r.t network's output
-        gradient_loss = output - y  # The derivative of the MSE loss function
+        gradient_loss = 2*(output - y)  # The derivative of the MSE loss function
 
         # Computing the backward pass through all the layers (starting from the last layer)
         for layer in reversed(self.layers):
@@ -48,25 +48,25 @@ class NeuralNetwork:
         """
         A full training loop of the neural network.
 
-        X: contains many training inputs x_i which have corresponding true values in Y, y_i.
+        X: contains multiple training inputs x_i which have corresponding true values in Y, y_i.
         Y: contains the true values y_i corresponding to inputs x_i in X.
-        epochs: number of epochs to train the neural network
-        lr: learning rate
+        epochs: number of epochs the neural network will train for
+        lr: learning rate for the updating of parameters.
         """
 
         losses= []
         for epoch in range(epochs):
             total_loss = 0
-            for x, y in zip(X, Y):
-                loss = self.backward_pass(x, y, lr)
+            for x, y in zip(X, Y): # For each x,y pair in X,Y
+                loss = self.backward_pass(x, y, lr) # Calculate the loss of the input (here backward pass includes the forward pass step)
                 total_loss += loss
             avg_loss = total_loss / len(X)
             losses.append(avg_loss)
 
             if epoch % 10 == 0:
-                print(f"Epoch {epoch}, loss: {avg_loss:.4f}")
+                print(f"Epoch {epoch}, loss: {avg_loss:.4f}") # Print a summary step common in neural nets to track training
 
-        outputs = np.array([self.forward_pass(x) for x in X])
+        outputs = np.array([self.forward_pass(x) for x in X])  # Final outputs after weight update
         return losses, outputs
 
 

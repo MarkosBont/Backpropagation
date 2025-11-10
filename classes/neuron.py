@@ -33,7 +33,7 @@ class Neuron:
         """
         self.input = inputs
         self.z = np.dot(inputs, self.weights) + self.bias  # Apply a dot product between all inputs and the weights, and finally add the bias
-        self.output = self.activate(self.z) # Apply the activation function
+        self.output = self.activate(self.z) # Apply the activation function to z
 
         return self.output
 
@@ -49,7 +49,7 @@ class Neuron:
         dW = self.input * error_term  # Value of derivative of the weight
         db = error_term  # Value of derivative of the bias
 
-        d_input = self.weights * error_term  # The gradient, for the previous layer used for backpropagation
+        d_input = self.weights * error_term  # The gradient used later on in backpropagation
 
         # Updates the neurons parameters
         self.weights -= learning_rate * dW

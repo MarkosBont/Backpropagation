@@ -5,7 +5,7 @@ import numpy as np
 Network Initialisation
 """
 nn = NeuralNetwork([4,6,10,6,4,1]) # Initialises a neural network with 3 layers
-nn.network_summary()
+nn.network_summary()  # Prints a summary of the neural network
 
 """
 Training examples and true values
@@ -20,14 +20,14 @@ y2 = [0.6]
 y3 = [0.8]
 y4 = [0.1]
 
-X = np.array([x1,x2,x3,x4]) # Input to the network, in this format as we later use the zip function
-Y = np.array([y1,y2,y3,y4])
+X = np.array([x1,x2,x3,x4]) # Input to the network, in numpy format as I later use the zip function
+Y = np.array([y1,y2,y3,y4]) # The true labels for the network
 
 
 """
 Training Loop
 """
-losses, outputs = nn.training_loop(X, Y, epochs=100, lr = 0.1)
+losses, outputs = nn.training_loop(X, Y, epochs=100, lr = 0.1)  # Generates the losses and outputs of the network
 
 print('\n')
 print("Outputs:")
