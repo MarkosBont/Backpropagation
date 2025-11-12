@@ -2,7 +2,6 @@ import unittest
 
 import numpy as np
 
-from classes import neural_network
 from classes.neuron import Neuron
 from classes.neural_network import NeuralNetwork
 from classes.layer import Layer

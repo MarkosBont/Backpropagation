@@ -13,6 +13,17 @@ class Neuron:
         self.z = None
 
 
+    def forward_pass(self, inputs):
+        """
+        Compute the output of the neuron
+        """
+        self.input = inputs
+        self.z = np.dot(inputs, self.weights) + self.bias  # Apply a dot product between all inputs and the weights, and finally add the bias
+        self.output = self.activate(self.z) # Apply the activation function to z
+
+        return self.output
+
+
     def activate(self, x):
         """
         Applies the sigmoid activation function to the input
@@ -27,15 +38,6 @@ class Neuron:
         s = self.activate(x)
         return s*(1-s)
 
-    def forward_pass(self, inputs):
-        """
-        Compute the output of the neuron
-        """
-        self.input = inputs
-        self.z = np.dot(inputs, self.weights) + self.bias  # Apply a dot product between all inputs and the weights, and finally add the bias
-        self.output = self.activate(self.z) # Apply the activation function to z
-
-        return self.output
 
     def backward_pass(self, derivative_loss, learning_rate):
         """
@@ -46,8 +48,8 @@ class Neuron:
         d_activation = self.activation_derivative(self.z)
         error_term = derivative_loss * d_activation  # Total derivative of the loss w.r.t z
 
-        dW = self.input * error_term  # Value of derivative of the weight
-        db = error_term  # Value of derivative of the bias
+        dW = self.input * error_term  # Value of derivative of the loss w.r.t the weight
+        db = error_term  # Value of derivative of the loss w.r.t the bias
 
         d_input = self.weights * error_term  # The gradient used later on in backpropagation
 
