@@ -5,7 +5,7 @@ There are two main ways to test the functionality of the neural network:
 ---
 ### **1. Running Unit Tests (test.py)**
 
-- Execute all of the unit tests tests by running the following command in the terminal:
+- Execute all of the unit tests by running the following command in the terminal:
   ```bash
   python -m unittest test.py
   ```
